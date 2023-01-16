@@ -101,7 +101,9 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-ALLOWED_HOSTS=['luxury-villasbe.up.railway.app','127.0.0.1', 'https://luxury-villasbe.up.railway.app/admin','http://localhost:3000']
+# https://kato-fruits-backend-production.up.railway.app/
+ALLOWED_HOSTS=['kato-fruits-backend-production.up.railway.app','127.0.0.1', 'https://kato-fruits-backend-production.up.railway.app/admin','http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['https://kato-fruits-backend-production.up.railway.app']
 
 cloudinary.config(
     cloud_name=config('CD_NAME'),
