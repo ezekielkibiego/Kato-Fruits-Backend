@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 import datetime as dt
 from django.forms import CharField
 from django.urls import reverse
+from pyuploadcare.dj.models import ImageField, FileField
 
 class Category(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -23,12 +24,10 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    image1 = CloudinaryField('image')
-    image2 = CloudinaryField('image', null=True)
-    image3 = CloudinaryField('image', blank=True, null=True)
-    image4 = CloudinaryField('image', blank=True, null=True)
-    image5 = CloudinaryField('image', blank=True, null=True)   
-    image6 = CloudinaryField('image', blank=True, null=True)
+    image1 = ImageField( manual_crop="")
+    image2 = ImageField(blank=True, null=True, manual_crop="")
+    image3 = ImageField(blank=True,null=True, manual_crop="")
+    image4 = ImageField(blank=True,null=True, manual_crop="")
     description = models.TextField(max_length=1000)
     new_price = models.FloatField()
     old_price = models.FloatField()

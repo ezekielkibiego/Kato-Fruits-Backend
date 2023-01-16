@@ -248,9 +248,9 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
         'NAME':'railway',
         'USER':'postgres',
-        'PASSWORD':'s5AilfjuL8R1accOWyef',
-        'HOST': 'containers-us-west-47.railway.app',
-        'PORT': '5638',
+        'PASSWORD':'zabxLMDj2QXXk9wzFGD6',
+        'HOST': 'containers-us-west-175.railway.app',
+        'PORT': '7113',
     }
 }
 # production
@@ -264,14 +264,17 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS=['kato-fruits-backend-production.up.railway.app','127.0.0.1', 'https://kato-fruits-backend-production.up.railway.app/admin','http://localhost:3000']
 CSRF_TRUSTED_ORIGINS = ['https://kato-fruits-backend-production.up.railway.app']
 
-cloudinary.config(
-    cloud_name=config('CD_NAME'),
-    api_key=config('CD_API'),
-    api_secret=config('CD_SECRET'),
-    api_secure=config('CD_SECURE')
+# cloudinary.config(
+#     cloud_name=config('CD_NAME'),
+#     api_key=config('CD_API'),
+#     api_secret=config('CD_SECRET'),
+#     api_secure=config('CD_SECURE')
     
-)
-
+# )
+UPLOADCARE = {  
+    'pub_key': config('pub_key'),
+    'secret': config('secret'),
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
